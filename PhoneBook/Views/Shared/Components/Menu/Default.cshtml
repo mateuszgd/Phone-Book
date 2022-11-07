@@ -1,0 +1,16 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+@foreach (var link in Model)
+{
+    @Html.RouteLink(link, new {
+        controller = "Employee",
+        action = "Index",
+        department = link.ToLower().Replace(" ", "-")
+    }, new {
+        @class = "dropdown-item"
+    })
+}
